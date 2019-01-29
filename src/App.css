@@ -1,22 +1,12 @@
-table {
-  background: #fffefd;
-  border: 1px solid;
-  margin:auto;
+nav.navbar.navbar-expand-md.navbar-light.bg-light {
+  overflow: hidden;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+  float: left;
+  z-index: 1;
 }
 
-thead {
-  border: 1px solid;
-}
-
-th {
-  text-align: center;
-  border: 1px;
-}
-
-tbody {
-  border: 1px solid;
-}
-
-td {
-  border: 1px solid;
+.main {
+  margin-top: 55px;
 }

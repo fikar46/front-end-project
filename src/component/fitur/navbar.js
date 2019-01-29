@@ -6,7 +6,11 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink } from 'reactstrap';
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem } from 'reactstrap';
 
 class Header extends React.Component {
   constructor(props) {
@@ -26,18 +30,15 @@ class Header extends React.Component {
     return (
       <div>
         <Navbar color="light" light expand="md">
-          <NavbarBrand href="/">Movies</NavbarBrand>
+          <NavbarBrand href="/">Dilizents</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/managemovies">Manage Movies</NavLink>
+                <NavLink href="/daftar">Daftar</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/managecategories">Manage Categories</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/connectmovies">Connect Movies and Categories</NavLink>
+                <NavLink href="/masuk">Masuk</NavLink>
               </NavItem>
             </Nav>
           </Collapse>
@@ -46,4 +47,4 @@ class Header extends React.Component {
     );
   }
 }
-export default Header;
+export default Header
