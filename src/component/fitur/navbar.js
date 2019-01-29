@@ -67,7 +67,6 @@ class Header extends React.Component {
     );
   }
   return (
-    <div class="header">
       <Navbar light expand="md">
         <Link to='/homes'><NavbarBrand style={{color:'black'}}>Dilizents</NavbarBrand></Link>
         <NavbarToggler onClick={this.toggle} />
@@ -101,7 +100,6 @@ class Header extends React.Component {
           </Nav>
         </Collapse>
       </Navbar>
-    </div>
    );
   }
 }
