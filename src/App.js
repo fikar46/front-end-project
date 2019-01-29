@@ -13,7 +13,16 @@ import login from './component/screen/login';
 
 const cookies = new Cookies();
 class App extends Component {
+  componentDidMount(){
+    const cookienya = cookies.get("dataUser");
+    if(cookienya !== undefined){
+      this.props.keepLogin(cookienya);
+    }else{
+      this.props.cookieChecked()
+    }
+}
   render() {
+    if(this.props.cookie){
       return (
         <div>  
             <Header/>
@@ -22,7 +31,8 @@ class App extends Component {
 
         </div>
       );
-    
+    }
+    return(<div><center><h1>Loading...</h1></center></div>);
   }
 }
 const mapStateToProps =(state)=>{
