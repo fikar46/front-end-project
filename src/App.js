@@ -10,6 +10,8 @@ import Header from './component/fitur/navbar';
 import Homepage from './component/screen/homepage';
 import login from './component/screen/login';
 import register from './component/screen/register';
+import HomeUser from './component/screen/homeUser';
+import Country from './component/screen/country';
 
 
 const cookies = new Cookies();
@@ -30,6 +32,8 @@ class App extends Component {
             <Route exact path='/' component={Homepage}/>
             <Route exact path='/login' component={login}/>
             <Route exact path='/register' component={register}/>
+            <Route exact path='/homes' component={HomeUser}/> 
+            <Route path='/country' component={Country}/>
 
         </div>
       );
