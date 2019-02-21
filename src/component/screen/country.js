@@ -1,13 +1,24 @@
 import React,{Component} from 'react';
-import { Card, CardImg, CardText, CardBody,CardTitle, CardSubtitle, Button } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody,CardTitle, CardSubtitle, Button, ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem  } from 'reactstrap';
 import Axios from 'axios';
 import queryString from 'query-string'
 class Country extends Component{
     state={
-        dataProductCountry:[]
+        dataProductCountry:[],
+        dropdownOpen: false,
+        dataCountry:[]
     }
+    
+      toggle() {
+        this.setState({
+          dropdownOpen: !this.state.dropdownOpen
+        });
+      }
+    
     componentDidMount(){
-        this.getCountryProduct()
+        this.getCountryProduct();
+        this.getCountry();
+        this.toggle = this.toggle.bind(this);
     }
     getCountryProduct=()=>{
         var params = queryString.parse(this.props.location.search)
@@ -20,6 +31,41 @@ class Country extends Component{
             console.log(err)
         })
     }
+    getCountry=()=>{
+        Axios.get("http://localhost:2000/country")
+        .then((res)=>{
+            this.setState({dataCountry:res.data})
+            console.log(this.state.dataCountry)
+        }).catch((err)=>{
+            console.log(err)
+        })
+    }
+    putDataDropdownCountry=()=>{
+        var params = queryString.parse(this.props.location.search)
+        var country = params.id;
+        var filterCountry = this.state.dataCountry.filter((item)=>{
+            return item["id"] != country
+        })
+        var country = filterCountry.map((item)=>{
+            var {id,nama} = item
+            return(
+                <a href={`/country?id=${id}`}><DropdownItem>{nama}</DropdownItem></a>
+            )
+        })
+        return country
+    }
+    getNameCountry=()=>{
+        var params = queryString.parse(this.props.location.search)
+        var country = params.id;
+        var filterCountry = this.state.dataCountry.filter((item)=>{
+            return item["id"] == country
+        })
+        var country = filterCountry.map((item)=>{
+            var {nama} = item
+            return nama
+        })
+        return country
+    }
     putDataProductCountry=()=>{
         var Country = this.state.dataProductCountry.map((item)=>{
             var {id,nama,harga,negara,gambar}= item
@@ -30,7 +76,7 @@ class Country extends Component{
                     <CardBody>
                         <CardTitle>{nama}</CardTitle>
                         <CardSubtitle>{harga}</CardSubtitle>
-                        <CardSubtitle>{negara}</CardSubtitle>
+                        <CardText>{negara}</CardText>
                         <a href={`/country?id=${id}`}><Button>Button</Button></a>
                     </CardBody>
                 </Card>
@@ -41,11 +87,24 @@ class Country extends Component{
     }
     render(){
         return(
-            <div className="container">
-              <center><h1>country</h1></center>
+            <div className="container row">
+              <div className="col-md-4">
+              <h4 align="left">filter</h4>
+              <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+                <DropdownToggle caret>
+                {this.getNameCountry()}
+                </DropdownToggle>
+                <DropdownMenu>
+                    {this.putDataDropdownCountry()}
+                </DropdownMenu>
+            </ButtonDropdown>
+              </div>
+             <div className="col-md-8">
+             <h1 align="center">{this.getNameCountry()}</h1>
                 <div className="row">
                    {this.putDataProductCountry()}
                 </div>
+             </div>
              </div>
         )
     }
