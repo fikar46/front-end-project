@@ -33,7 +33,7 @@ class Header extends React.Component {
     });
   }
   componentDidMount() {
-    axios.get('http://localhost:2001/user')
+    axios.get('http://localhost:2000/user')
         .then((res) => {
             this.setState({ listUser: res.data, searchListUser: res.data })
         }).catch((err) => {
@@ -50,16 +50,11 @@ class Header extends React.Component {
     return (
       <div>
         <Navbar color="light" light expand="md">
-<<<<<<< HEAD
           <NavbarBrand href="/">Warehousenesia.id</NavbarBrand>
-=======
-          <NavbarBrand href="/">Dilizents</NavbarBrand>
->>>>>>> 5bab4105e4339f65873030869ae36a1b36a9cdfb
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-<<<<<<< HEAD
                 <NavLink href="/how-it-works">How it works</NavLink>
               </NavItem>
               <NavItem>
@@ -67,12 +62,6 @@ class Header extends React.Component {
               </NavItem>
               <NavItem>
                 <NavLink href="/login">Login</NavLink>
-=======
-                <NavLink href="/daftar">Daftar</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/masuk">Masuk</NavLink>
->>>>>>> 5bab4105e4339f65873030869ae36a1b36a9cdfb
               </NavItem>
             </Nav>
           </Collapse>
@@ -82,11 +71,7 @@ class Header extends React.Component {
   }
   return (
       <Navbar light expand="md">
-<<<<<<< HEAD
         <Link to='/homes'><NavbarBrand style={{color:'black'}}>Warehousenesia.id</NavbarBrand></Link>
-=======
-        <Link to='/homes'><NavbarBrand style={{color:'black'}}>Dilizents</NavbarBrand></Link>
->>>>>>> 5bab4105e4339f65873030869ae36a1b36a9cdfb
         <NavbarToggler onClick={this.toggle} />
         <Collapse isOpen={this.state.isOpen} navbar>
         <Nav className="mr-auto" navbar>

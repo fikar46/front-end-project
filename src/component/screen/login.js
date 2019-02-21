@@ -1,14 +1,10 @@
 import React, {Component} from 'react';
-<<<<<<< HEAD
 import '../../support/css/signin.css'
-=======
->>>>>>> 5bab4105e4339f65873030869ae36a1b36a9cdfb
 import { Button, Form, Input} from 'reactstrap';
 import {Redirect} from 'react-router-dom'
 import {connect} from 'react-redux';
 import {onUserLogin} from '../../actions';
 import Cookies from "universal-cookie";
-<<<<<<< HEAD
 const cookies = new Cookies();
 class Login extends Component{
     componentWillReceiveProps(newProps){
@@ -16,15 +12,6 @@ class Login extends Component{
         if(newProps.username!==""){
             cookies.set('dataUser',newProps.username,{path: '/'})
             cookies.set('idUser',newProps.id,{path: '/'})
-=======
-
-const cookies = new Cookies();
-class Login extends Component{
-
-    componentWillReceiveProps(newProps){
-        if(newProps.username!==""){
-            cookies.set('dataUser',newProps.username,{path: '/'})
->>>>>>> 5bab4105e4339f65873030869ae36a1b36a9cdfb
         }
       }
     onBtnLoginClick= ()=>{
@@ -51,7 +38,6 @@ class Login extends Component{
     render(){
         if(this.props.username===''){
         return(
-<<<<<<< HEAD
             <div className="signin">
             <div className="container">
                 <div className="row justify-content-md-center">
@@ -75,36 +61,6 @@ class Login extends Component{
                         </Form>
                 </div>
                     
-=======
-            <div className="main">
-            <div className="container">
-                <div className="row">
-                <div className="col-md-6">
-                
-                </div>
-                    <div className="col-md-6">
-                    <h2 className="form-title">Sign in</h2>
-                            <Form  className="register-form" id="login-form">
-                            <div className="form-group">
-                                <label htmlFor="your_name"></label>
-                                <Input type="text" ref='username' innerRef='tbusername' placeholder='username' className="form-control" id="usr"/>
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="your_pass"></label>
-                                <Input type="password" ref='password' innerRef='tbpassword' placeholder='your password' className="form-control" id="pwd"/>
-                            </div>
-                            <div className="form-group">
-                                <Input type="checkbox" name="remember-me" id="remember-me" className="agree-term" />
-                                <label htmlFor="remember-me" className="label-agree-term"><span><span /></span>Remember me</label>
-                            </div>
-                            <div className="form-group form-button">
-                                    {this.renderError()}
-                                
-                            </div>
-                            </Form>
-                            {this.renderButton()}
-                    </div>
->>>>>>> 5bab4105e4339f65873030869ae36a1b36a9cdfb
                 </div>
             </div>               
               </div>
@@ -116,10 +72,7 @@ class Login extends Component{
 const mapStateToProps =(state)=>{
     return {
         username: state.auth.username,
-<<<<<<< HEAD
         id:state.auth.id,
-=======
->>>>>>> 5bab4105e4339f65873030869ae36a1b36a9cdfb
         error: state.auth.error,
         loading: state.auth.loading
     
