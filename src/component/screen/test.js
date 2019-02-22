@@ -12,23 +12,17 @@ import { Card,
     DropdownItem } from 'reactstrap';
 import Axios from 'axios';
 import queryString from 'query-string'
-const rupiah = new Intl.NumberFormat("in-Rp",{
-    style:"currency",
-    currency:"IDR"
-})
 class Country extends Component{
     state={
         dataProductCountry:[],
         dropdownOpen: false,
         dataCountry:[],
-        kategori:"",
-        listCategory:[]
+        kategori:""
     }
     componentDidMount(){
         this.getCountryProduct();
         this.getCountry();
-        this.setKategori();
-        this.getDataCategory();
+        this.pushCategory();
         this.toggle = this.toggle.bind(this);
     }
     toggle() {
@@ -47,12 +41,12 @@ class Country extends Component{
             console.log(err)
         })
     }
-    setKategori=()=>{
+    pushCategory=()=>{
         var params = queryString.parse(this.props.location.search)
         var category = params.id_category;
         console.log(category)
-        if(category !== undefined){
-            this.setState({kategori:category});
+        if(category != undefined){
+            this.setState({kategori:category})
         }
     }
     putDataProductCountry=()=>{
@@ -64,16 +58,15 @@ class Country extends Component{
                 var {id,nama,harga,negara,gambar}= item
                 return (
                     <div className="col-md-4">
-                    <a className="text-dark btn" href={`/product-detail?id=${id}`}>
                     <Card>
                         <CardImg top width="100%" src={gambar} alt="Card image cap"/>
                         <CardBody>
                             <CardTitle>{nama}</CardTitle>
-                            <CardSubtitle>{rupiah.format(harga)}</CardSubtitle>
-                            <CardText>{negara}</CardText>
+                            <CardSubtitle>{harga}</CardSubtitle>
+                            <CardSubtitle>{negara}</CardSubtitle>
+                            <a href={`/country?id=${id}`}><Button>Button</Button></a>
                         </CardBody>
                     </Card>
-                    </a>
                 </div>
                 )
             })
@@ -83,21 +76,22 @@ class Country extends Component{
                 var {id,nama,harga,negara,gambar}= item
                 return (
                     <div className="col-md-4">
-                    <a className="text-dark btn" href={`/product-detail?id=${id}`}>
                     <Card>
                         <CardImg top width="100%" src={gambar} alt="Card image cap"/>
                         <CardBody>
                             <CardTitle>{nama}</CardTitle>
-                            <CardSubtitle>{rupiah.format(harga)}</CardSubtitle>
-                            <CardText>{negara}</CardText>
+                            <CardSubtitle>{harga}</CardSubtitle>
+                            <CardSubtitle>{negara}</CardSubtitle>
+                            <a href={`/country?id=${id}`}><Button>Button</Button></a>
                         </CardBody>
                     </Card>
-                    </a>
                 </div>
                 )
             })
             return Country
         }
+        
+        
         
     }
     getCountry=()=>{
@@ -133,31 +127,12 @@ class Country extends Component{
         })
         return putdata
     }
-    getDataCategory=()=>{
-        Axios.get("http://localhost:2000/category")
-        .then((res)=>{
-            this.setState({listCategory:res.data})
-            console.log(this.state.listCategory)
-        }).catch((err)=>{
-            console.log(err)
-        })
-    }
-    putDataCategory=()=>{
-        var params = queryString.parse(this.props.location.search)
-        var country = params.id;
-        var category = this.state.listCategory.map((item)=>{
-            return(<li><a className="text-secondary" href={`/country?id=${country}&&id_category=${item.id}`}>{item.nama_kategori}</a></li>)
-        })
-        return category
-    }
     render(){
-        var params = queryString.parse(this.props.location.search)
-        var country = params.id;
         return(
             <div className="container row">
               <div className="col-md-4">
-                <h4 className="text-secondary mt-3" align="left">Filter</h4>
-                <p className="text-secondary bold">Sort by:</p>
+                <h4 className="text-secondary" align="left">Filter</h4>
+                <p className="text-secondary">Sort by:</p>
                 <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
         <DropdownToggle caret>
           {this.putNameCountry()}
@@ -167,9 +142,7 @@ class Country extends Component{
         </DropdownMenu>
       </ButtonDropdown>
       <ul class="list-unstyled">
-            <li className="text-secondary">Kategori: </li>
-            <li><a className="text-secondary" href={`/country?id=${country}`}>All</a></li>
-            {this.putDataCategory()}
+          <li>test</li>
       </ul>
               </div>
               <div className="col-md-8">

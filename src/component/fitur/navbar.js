@@ -71,17 +71,17 @@ class Header extends React.Component {
   }
   return (
       <Navbar light expand="md">
-        <Link to='/homes'><NavbarBrand style={{color:'black'}}>Warehousenesia.id</NavbarBrand></Link>
+        <Link to='/'><NavbarBrand style={{color:'black'}}>Warehousenesia.id</NavbarBrand></Link>
         <NavbarToggler onClick={this.toggle} />
         <Collapse isOpen={this.state.isOpen} navbar>
         <Nav className="mr-auto" navbar>
         </Nav>
           <Nav className="ml-auto" navbar>
           <NavItem>
-             <Link to='/diskusi'><NavLink>Diskusi</NavLink></Link>
+             <Link to='/wishlist'><NavLink><i class='far fa-heart'></i></NavLink></Link>
             </NavItem>
             <NavItem>
-            <NavLink href='/leaderboard'>Leader board</NavLink>
+            <NavLink href='/cart'><i class="fa fa-shopping-cart"></i></NavLink>
             </NavItem>
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>

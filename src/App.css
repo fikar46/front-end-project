@@ -6,3 +6,10 @@ nav.navbar.navbar-expand-md.navbar-light.bg-light {
   float: left;
   z-index: 1;
 }
+.bg-gradient-secondary.font-card.card-img-overlay {
+  background: #13101075;
+}
+
+h5.bg-gradient-secondary.display-4.text-white.font-weight-bold.card-title {
+  font-size: 41px;
+}

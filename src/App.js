@@ -12,6 +12,7 @@ import login from './component/screen/login';
 import register from './component/screen/register';
 import HomeUser from './component/screen/homeUser';
 import Country from './component/screen/country';
+import ProductDetail from './component/screen/productDetail';
 
 
 const cookies = new Cookies();
@@ -34,6 +35,7 @@ class App extends Component {
             <Route exact path='/register' component={register}/>
             <Route exact path='/homes' component={HomeUser}/> 
             <Route path='/country' component={Country}/>
+            <Route path='/product-detail' component={ProductDetail}/>
 
         </div>
       );
