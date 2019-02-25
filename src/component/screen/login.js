@@ -65,14 +65,15 @@ class Login extends Component{
             </div>               
               </div>
         )
-    }
+        }else if(this.props.username == "admin"){
+            return <Redirect to="/admin"/>
+        }
     return <Redirect to="/"/>
   }
 }
 const mapStateToProps =(state)=>{
     return {
         username: state.auth.username,
-        id:state.auth.id,
         error: state.auth.error,
         loading: state.auth.loading
     

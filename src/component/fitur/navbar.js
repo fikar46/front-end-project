@@ -46,10 +46,11 @@ class Header extends React.Component {
   }
 
   render() {
+    console.log(cookies.get('dataUser'))
     if(this.props.username === ''){
     return (
       <div>
-        <Navbar color="light" light expand="md">
+        <Navbar color="light" light expand="md" className="navbar fixed-top navbar-expand-lg navbar-light bg-white fixed-top">
           <NavbarBrand href="/">Warehousenesia.id</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
@@ -70,7 +71,7 @@ class Header extends React.Component {
     );
   }
   return (
-      <Navbar light expand="md">
+      <Navbar light expand="md" className="navbar fixed-top navbar-expand-lg navbar-light bg-white fixed-top">
         <Link to='/'><NavbarBrand style={{color:'black'}}>Warehousenesia.id</NavbarBrand></Link>
         <NavbarToggler onClick={this.toggle} />
         <Collapse isOpen={this.state.isOpen} navbar>
@@ -78,7 +79,7 @@ class Header extends React.Component {
         </Nav>
           <Nav className="ml-auto" navbar>
           <NavItem>
-             <Link to='/wishlist'><NavLink><i class='far fa-heart'></i></NavLink></Link>
+             <Link to='/order'><NavLink>Order</NavLink></Link>
             </NavItem>
             <NavItem>
             <NavLink href='/cart'><i class="fa fa-shopping-cart"></i></NavLink>
@@ -88,11 +89,8 @@ class Header extends React.Component {
                 Hello, {this.props.username}
               </DropdownToggle>
               <DropdownMenu right>
-                <DropdownItem>
-                  Profile
-                </DropdownItem>
-                <Link to='/'><DropdownItem>
-                  Option
+                <Link to='/history'><DropdownItem>
+                  History
                 </DropdownItem></Link>
                 <DropdownItem divider />
                 <a href="/"><DropdownItem onClick={this.onLogOutSelect}>

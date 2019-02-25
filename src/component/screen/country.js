@@ -61,14 +61,14 @@ class Country extends Component{
                 return item["kategori"] == this.state.kategori
             })
             var Country = FilterCategory.map((item)=>{
-                var {id,nama,harga,negara,gambar}= item
+                var {id,nama,harga,negara,gambar, id_negara}= item
                 return (
                     <div className="col-md-4">
-                    <a className="text-dark btn" href={`/product-detail?id=${id}`}>
+                    <a className="text-dark btn" href={`/product-detail?id=${id}&&negara=${id_negara}`}>
                     <Card>
-                        <CardImg top width="100%" src={gambar} alt="Card image cap"/>
+                        <CardImg className="imagecard" top width="100%" src={gambar} alt="Card image cap"/>
                         <CardBody>
-                            <CardTitle>{nama}</CardTitle>
+                            <p className="title">{nama}</p>
                             <CardSubtitle>{rupiah.format(harga)}</CardSubtitle>
                             <CardText>{negara}</CardText>
                         </CardBody>
@@ -80,14 +80,14 @@ class Country extends Component{
             return Country
         }else{
             var Country = this.state.dataProductCountry.map((item)=>{
-                var {id,nama,harga,negara,gambar}= item
+                var {id,nama,harga,negara,gambar, id_negara}= item
                 return (
                     <div className="col-md-4">
-                    <a className="text-dark btn" href={`/product-detail?id=${id}`}>
+                    <a className="text-dark btn" href={`/product-detail?id=${id}&&negara=${id_negara}`}>
                     <Card>
                         <CardImg top width="100%" src={gambar} alt="Card image cap"/>
                         <CardBody>
-                            <CardTitle>{nama}</CardTitle>
+                            <p className="title">{nama}</p>
                             <CardSubtitle>{rupiah.format(harga)}</CardSubtitle>
                             <CardText>{negara}</CardText>
                         </CardBody>

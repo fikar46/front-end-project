@@ -84,7 +84,7 @@ class Register extends Component{
               </div>
         )
     }
-    return <Redirect to="/homes"/>
+    return <Redirect to="/"/>
   }
 }
 const mapStateToProps =(state)=>{

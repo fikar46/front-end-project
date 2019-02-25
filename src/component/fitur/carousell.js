@@ -9,19 +9,22 @@ import {
 
 const items = [
   {
-    src: 'https://via.placeholder.com/1370x400?text=Visit+Dilizents.com+Now',
-    altText: 'Slide 1',
-    caption: 'Slide 1'
+    src: 'http://warehousenesia.id/image/negara/Japan@2x.jpg',
+    altText: 'Japan',
+    caption: 'Japan',
+    link:'/country?id=1'
   },
   {
-    src: 'https://via.placeholder.com/1370x400?text=Visit+Dilizents.com+Now',
-    altText: 'Slide 2',
-    caption: 'Slide 2'
+    src: 'http://warehousenesia.id/image/negara/Singapore@2x.jpg',
+    altText: 'Singapore',
+    caption: 'Singapore',
+    link:'/country?id=2'
   },
   {
-    src: 'https://via.placeholder.com/1370x400?text=Visit+Dilizents.com+Now',
-    altText: 'Slide 3',
-    caption: 'Slide 3'
+    src: 'http://warehousenesia.id/image/negara/Malaysia@2x.jpg',
+    altText: 'Malaysia',
+    caption: 'Malaysia',
+    link:'/country?id=5'
   }
 ];
 
@@ -71,7 +74,8 @@ class CarousellFitur extends Component {
           onExited={this.onExited}
           key={item.src}
         >
-          <img src={item.src} alt={item.altText} />
+        <a href={item.link}>
+          <img src={item.src} alt={item.altText} width="100%" height="500px"/></a>
           <CarouselCaption captionText={item.caption} captionHeader={item.caption} />
         </CarouselItem>
       );

@@ -13,3 +13,93 @@ nav.navbar.navbar-expand-md.navbar-light.bg-light {
 h5.bg-gradient-secondary.display-4.text-white.font-weight-bold.card-title {
   font-size: 41px;
 }
+p.color-product {
+  color: #1A2D45;
+  font-weight: bold;
+}
+
+h4.color-product.title-product {
+  font-weight: bold;
+  font-size: 40px;
+}
+
+input.btn.btn-addToCart {
+  color: white;
+  background: #1A2D45;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {  
+
+   -webkit-appearance: "Always Show Up/Down Arrows";
+   opacity: 1;
+}
+input.input-numberProduct {
+  width: 20%;
+  text-align: center;
+  border: none;
+  -webkit-appearance: "Always Show Up/Down Arrows";
+}
+p.title {
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  display: block;
+  white-space: nowrap;
+  max-width: 144px;
+  overflow: hidden;
+}
+
+/* table */
+ td, th {
+  background: #EDEDEE;
+  text-align:center;
+  
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  height: 50px;
+}
+td.noborder {
+  background: none;
+}
+table.space-table {
+  border-collapse: separate;
+  border-spacing: 0px 14px;
+}
+.color-tittle {
+  color: #1A2D45;
+  font-weight: bold;
+}
+button.btn.btn-secondary.btn-checkout {
+  float: right;
+}
+nav.navbar.navbar-expand-md.navbar-light {
+  -webkit-box-shadow: 0 3px 8px 0 rgba(0,0,0,.05);
+  box-shadow: 0 3px 8px 0 rgba(0,0,0,.05);
+}
+body {
+  padding-top: 55px;
+}
+/* css payment */
+.payment {
+  text-align: center;
+  margin-top: 70px;
+  margin-bottom: 70px;
+}
+.petunjuk.row {
+  margin: 25px;
+  text-align: center;
+  border: 1px solid #d8d4d4;
+  padding: 30px;
+}
+.row.pembayaran-bank {
+  margin: 30px;
+}
+img.image-admin {
+  width: 100px;
+  height: auto;
+}
